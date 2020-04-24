@@ -9,11 +9,8 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/marked/marked.min.js"></script>
         <script src="https://kit.fontawesome.com/be1158ef07.js" crossorigin="anonymous"></script>
-        <script src="bugs.js"></script>
-        <style>
-            .form-signature .form-control { height: auto; padding: 10px; }
-            #content { border-radius: 1em; border: 1px solid chocolate; background-color: beige; }
-        </style>
+        {{- $js := resources.Get "bugs.js" | resources.ExecuteAsTemplate "bugs.js" . | minify | fingerprint }}
+        <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
     </head>
     <body class="h-100 bg-light d-flex flex-column">
         <nav class="navbar navbar-dark bg-dark">

@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
         delimiters: ['${', '}'],
         el: '#container',
         data: {
-            issues_url: "https://api.github.com/repos/adarisques/bugs/issues",
+            issues_url: "{{ .Param "issuesApi" }}",
             issues: null,
         },
         mounted() {
