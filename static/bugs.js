@@ -7,6 +7,7 @@ var toast = function (target, text) {
 
 window.addEventListener('load', function() {
     new Vue({
+        delimiters: ['${', '}'],
         el: '#container',
         data: {
             issues_url: "https://api.github.com/repos/adarisques/bugs/issues",
